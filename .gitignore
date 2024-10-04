@@ -1,2 +1,23 @@
+# Ignore everything
+*
+
+# But not these files...
+!*.clab.yml
+!*.conf
+
+# ...even if they are in subdirectories
+!*/
+
+# Ignore everything in subdirectories...
+*/*
+
+# ...except the allowed file types in any subdirectory depth
+!**/*.clab.yml
+!**/*.conf
+
+# Keep .gitignore
+!.gitignore
+
+# Specific exclusions from the original file
 *.bak
 .aider*
