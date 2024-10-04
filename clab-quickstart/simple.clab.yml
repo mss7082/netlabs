@@ -1,0 +1,33 @@
+# topology documentation: http://containerlab.dev/lab-examples/srl-ceos/
+name: simple
+
+topology:
+  defaults:
+    kind: arista_ceos
+    image: ceos:4.32.0F
+  kinds:
+    ceos:
+      env:
+        CLAB_MGMT_VRF: MGMT
+    linux:
+      image: ghcr.io/srl-labs/network-multitool 
+  nodes:
+    r1:
+      kind: ceos
+    r2:
+      kind: ceos
+    srv1:
+      kind: linux
+      exec:
+        - ip link set address 00:c1:ab:00:00:01 dev eth1
+        - ip addr add 10.10.10.1/24 dev eth1
+    srv2:
+      kind: linux
+      exec:
+        - ip link set address 00:c1:ab:00:00:02 dev eth1
+        - ip addr add 10.20.20.1/24 dev eth1
+
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["r1:eth2", "srv1:eth1"]
+    - endpoints: ["r2:eth2", "srv2:eth1"]

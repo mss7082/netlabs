@@ -1,0 +1,289 @@
+{
+  "name": "evpn01",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-f6a60c7fa982",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "2001:172:20:20::/64",
+        "ipv6-gw": "2001:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "leaf1": {
+      "index": "0",
+      "shortname": "leaf1",
+      "longname": "clab-evpn01-leaf1",
+      "fqdn": "leaf1.evpn01.io",
+      "group": "",
+      "labdir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/leaf1",
+      "kind": "nokia_srlinux",
+      "image": "ghcr.io/nokia/srlinux:24.7.1-arm-preview",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "1a:f0:00:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6a60c7fa982",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srlinux",
+        "clab-node-lab-dir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/leaf1",
+        "clab-node-name": "leaf1",
+        "clab-node-type": "ixrd2l",
+        "clab-owner": "moses",
+        "clab-topo-file": "/mnt/mac/Users/moses/labs/sr-evpn/evpn.clab.yml",
+        "containerlab": "evpn01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "leaf2": {
+      "index": "1",
+      "shortname": "leaf2",
+      "longname": "clab-evpn01-leaf2",
+      "fqdn": "leaf2.evpn01.io",
+      "group": "",
+      "labdir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/leaf2",
+      "kind": "nokia_srlinux",
+      "image": "ghcr.io/nokia/srlinux:24.7.1-arm-preview",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::6",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "1a:1b:01:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6a60c7fa982",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srlinux",
+        "clab-node-lab-dir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/leaf2",
+        "clab-node-name": "leaf2",
+        "clab-node-type": "ixrd2l",
+        "clab-owner": "moses",
+        "clab-topo-file": "/mnt/mac/Users/moses/labs/sr-evpn/evpn.clab.yml",
+        "containerlab": "evpn01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "spine1": {
+      "index": "2",
+      "shortname": "spine1",
+      "longname": "clab-evpn01-spine1",
+      "fqdn": "spine1.evpn01.io",
+      "group": "",
+      "labdir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/spine1",
+      "kind": "nokia_srlinux",
+      "image": "ghcr.io/nokia/srlinux:24.7.1-arm-preview",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "1a:fa:02:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6a60c7fa982",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srlinux",
+        "clab-node-lab-dir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/spine1",
+        "clab-node-name": "spine1",
+        "clab-node-type": "ixrd3l",
+        "clab-owner": "moses",
+        "clab-topo-file": "/mnt/mac/Users/moses/labs/sr-evpn/evpn.clab.yml",
+        "containerlab": "evpn01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "srv1": {
+      "index": "3",
+      "shortname": "srv1",
+      "longname": "clab-evpn01-srv1",
+      "fqdn": "srv1.evpn01.io",
+      "group": "",
+      "labdir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/srv1",
+      "kind": "linux",
+      "image": "ghcr.io/srl-labs/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6a60c7fa982",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/srv1",
+        "clab-node-name": "srv1",
+        "clab-node-type": "",
+        "clab-owner": "moses",
+        "clab-topo-file": "/mnt/mac/Users/moses/labs/sr-evpn/evpn.clab.yml",
+        "containerlab": "evpn01"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 11443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 1180,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "srv2": {
+      "index": "4",
+      "shortname": "srv2",
+      "longname": "clab-evpn01-srv2",
+      "fqdn": "srv2.evpn01.io",
+      "group": "",
+      "labdir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/srv2",
+      "kind": "linux",
+      "image": "ghcr.io/srl-labs/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-f6a60c7fa982",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/mac/Users/moses/labs/sr-evpn/clab-evpn01/srv2",
+        "clab-node-name": "srv2",
+        "clab-node-type": "",
+        "clab-owner": "moses",
+        "clab-topo-file": "/mnt/mac/Users/moses/labs/sr-evpn/evpn.clab.yml",
+        "containerlab": "evpn01"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 11443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 1180,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "leaf1",
+        "interface": "e1-49",
+        "mac": "aa:c1:ab:9c:35:13",
+        "peer": "z"
+      },
+      "z": {
+        "node": "spine1",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:a2:27:ef",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "leaf2",
+        "interface": "e1-49",
+        "mac": "aa:c1:ab:b5:b3:2e",
+        "peer": "z"
+      },
+      "z": {
+        "node": "spine1",
+        "interface": "e1-2",
+        "mac": "aa:c1:ab:e9:93:3a",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "srv1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:0b:f2:12",
+        "peer": "z"
+      },
+      "z": {
+        "node": "leaf1",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:cc:ce:85",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "srv2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:55:8b:88",
+        "peer": "z"
+      },
+      "z": {
+        "node": "leaf2",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:b6:22:cd",
+        "peer": "a"
+      }
+    }
+  ]
+}
