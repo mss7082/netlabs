@@ -13,9 +13,7 @@ topology:
       image: ghcr.io/srl-labs/network-multitool 
   nodes:
     r1:
-      kind: ceos
     r2:
-      kind: ceos
     srv1:
       kind: linux
       exec:
