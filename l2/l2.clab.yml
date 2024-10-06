@@ -50,8 +50,8 @@ topology:
               stage: healthy
       healthcheck:
         test: ["CMD-SHELL", "Cli -c 'show version'"]
-        interval: 30s
-        timeout: 5s
+        interval: 30
+        timeout: 5
         retries: 5
     leaf2:
       stages:
@@ -67,8 +67,8 @@ topology:
               stage: healthy
       healthcheck:
         test: ["CMD-SHELL", "Cli -c 'show version'"]
-        interval: 30s
-        timeout: 5s
+        interval: 30
+        timeout: 5
         retries: 5
     leaf3:
       stages:
@@ -84,8 +84,8 @@ topology:
               stage: healthy
       healthcheck:
         test: ["CMD-SHELL", "Cli -c 'show version'"]
-        interval: 30s
-        timeout: 5s
+        interval: 30
+        timeout: 5
         retries: 5
     leaf4:
       stages:
@@ -101,8 +101,8 @@ topology:
               stage: healthy
       healthcheck:
         test: ["CMD-SHELL", "Cli -c 'show version'"]
-        interval: 30s
-        timeout: 5s
+        interval: 30
+        timeout: 5
         retries: 5
     borderleaf1:
       stages:
