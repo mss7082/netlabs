@@ -8,6 +8,8 @@ topology:
     ceos:
       env:
         CLAB_MGMT_VRF: MGMT
+    linux:
+      image: ghcr.io/srl-labs/network-multitool 
 
   nodes:
     spine1:
@@ -21,9 +23,25 @@ topology:
     borderleaf1:
     borderleaf2:
     host1:
+      kind: linux
+      exec:
+        - ip link set address 00:c1:ab:00:00:01 dev eth1
+        - ip addr add 10.10.10.1/24 dev eth1
     host2:
+      kind: linux
+      exec:
+        - ip link set address 00:c1:ab:00:00:02 dev eth1
+        - ip addr add 10.10.10.2/24 dev eth1
     host3:
+      kind: linux
+      exec:
+        - ip link set address 00:c1:ab:00:00:03 dev eth1
+        - ip addr add 10.20.10.1/24 dev eth1
     host4:
+      kind: linux
+      exec:
+        - ip link set address 00:c1:ab:00:00:04 dev eth1
+        - ip addr add 10.20.10.2/24 dev eth1
 
   links:
      # Spine to Leaf connections
