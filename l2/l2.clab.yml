@@ -13,32 +13,166 @@ topology:
 
   nodes:
     spine1:
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     spine2:
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     spine3:
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     spine4:
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     leaf1:
+      stages:
+        create:
+          wait-for:
+            - node: spine1
+              stage: healthy
+            - node: spine2
+              stage: healthy
+            - node: spine3
+              stage: healthy
+            - node: spine4
+              stage: healthy
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     leaf2:
+      stages:
+        create:
+          wait-for:
+            - node: spine1
+              stage: healthy
+            - node: spine2
+              stage: healthy
+            - node: spine3
+              stage: healthy
+            - node: spine4
+              stage: healthy
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     leaf3:
+      stages:
+        create:
+          wait-for:
+            - node: spine1
+              stage: healthy
+            - node: spine2
+              stage: healthy
+            - node: spine3
+              stage: healthy
+            - node: spine4
+              stage: healthy
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     leaf4:
+      stages:
+        create:
+          wait-for:
+            - node: spine1
+              stage: healthy
+            - node: spine2
+              stage: healthy
+            - node: spine3
+              stage: healthy
+            - node: spine4
+              stage: healthy
+      healthcheck:
+        test: ["CMD-SHELL", "Cli -c 'show version'"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
     borderleaf1:
+      stages:
+        create:
+          wait-for:
+            - node: leaf1
+              stage: healthy
+            - node: leaf2
+              stage: healthy
+            - node: leaf3
+              stage: healthy
+            - node: leaf4
+              stage: healthy
     borderleaf2:
+      stages:
+        create:
+          wait-for:
+            - node: leaf1
+              stage: healthy
+            - node: leaf2
+              stage: healthy
+            - node: leaf3
+              stage: healthy
+            - node: leaf4
+              stage: healthy
     host1:
       kind: linux
+      stages:
+        create:
+          wait-for:
+            - node: leaf1
+              stage: healthy
+            - node: leaf2
+              stage: healthy
       exec:
         - ip link set address 00:c1:ab:00:00:01 dev eth1
         - ip addr add 10.10.10.1/24 dev eth1
     host2:
       kind: linux
+      stages:
+        create:
+          wait-for:
+            - node: leaf1
+              stage: healthy
+            - node: leaf2
+              stage: healthy
       exec:
         - ip link set address 00:c1:ab:00:00:02 dev eth1
         - ip addr add 10.10.10.2/24 dev eth1
     host3:
       kind: linux
+      stages:
+        create:
+          wait-for:
+            - node: leaf3
+              stage: healthy
+            - node: leaf4
+              stage: healthy
       exec:
         - ip link set address 00:c1:ab:00:00:03 dev eth1
         - ip addr add 10.20.10.1/24 dev eth1
     host4:
       kind: linux
+      stages:
+        create:
+          wait-for:
+            - node: leaf3
+              stage: healthy
+            - node: leaf4
+              stage: healthy
       exec:
         - ip link set address 00:c1:ab:00:00:04 dev eth1
         - ip addr add 10.20.10.2/24 dev eth1
